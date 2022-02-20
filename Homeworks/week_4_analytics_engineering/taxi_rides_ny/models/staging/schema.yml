@@ -7,7 +7,8 @@ sources:
 
       tables:
         - name: green_tripdata
-        - name: yellow_tripdata_external_table 
+        - name: yellow_tripdata_external_table
+        - name: fhv_tripdata
 
 models:
     - name: stg_green_tripdata
@@ -192,3 +193,9 @@ models:
             description: Total amount of all tolls paid in trip.
           - name: Total_amount 
             description: The total amount charged to passengers. Does not include cash tips.
+
+    - name: fhv_tripdata
+      description: > 
+        FHV data includes trip data from high-volume for-hire vehicle bases (bases for companies
+        dispatching 10,000+ trip per day, meaning Uber, Lyft, Via, and Juno), community livery bases,
+        luxury limousine bases, and black car bases.
