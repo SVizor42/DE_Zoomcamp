@@ -1,15 +1,4 @@
-## Week 6 Homework 
-
-In this homework, we'll use the models developed during the week 4 videos and enhance the already presented dbt project using the already loaded Taxi data for fhv vehicles for year 2019 in our DWH.
-
-We will use the data loaded for:
-* Building a source table: `stg_fhv_tripdata`
-* Building a fact table: `fact_fhv_trips`
-* Create a dashboard 
-
-If you don't have access to GCP, you can do this locally using the ingested data from your Postgres database
-instead. If you have access to GCP, you don't need to do it for local Postgres -
-only if you want to.
+## Week 6 Homework
 
 ### Question 1. Which option allows Kafka to scale?
 * consumer.group.id
