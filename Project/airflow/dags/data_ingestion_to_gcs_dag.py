@@ -21,7 +21,7 @@ parquet_file = csv_file.replace('.csv', '.parquet')
 default_args = {
     "owner": "airflow",
     "start_date": datetime(2018, 1, 1),
-    "end_date": datetime(2018, 12, 31),
+    "end_date": datetime(2020, 12, 31),
     "depends_on_past": False,
     "retries": 1,
 }
