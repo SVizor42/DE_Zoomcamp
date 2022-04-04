@@ -151,4 +151,16 @@ Note that:
 * You need to create separate datasets for staging and production dbt models (e.g. `citibike_dev` and `citibike_prod`).
 
 ### 6. Google Data Studio
-The [dashboard](https://datastudio.google.com/s/u5AyaHHljbo) was built using Google Data Studio. 
+When the production models are ready, you can start building a dashboard.
+
+The [dashboard](https://datastudio.google.com/s/u5AyaHHljbo) is built using Google Data Studio. The process of the such dashboard creating in Google Data Studio is described in detail in [this video](https://www.youtube.com/watch?v=39nLTs74A3E&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=43).
+
+And the final dashboard includes the following diagrams:
+* Total trips count
+* Average trips duration per month and year
+* User type distribution
+* Trips count per month and year
+* Trips count by start station on the dynamic Google map
+> Note: To build a Google map you need to create a new geo field `start_location` based on `start_station_latitude` and `start_station_longitude` parameters.
+
+![Citibike-trips](https://user-images.githubusercontent.com/55026550/161604025-3cacf391-ea00-485d-b42c-623ef363f7aa.png)
