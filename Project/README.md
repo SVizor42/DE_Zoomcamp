@@ -17,7 +17,7 @@ The key goals of the project are:
 The period of the data processing will cover from 2018 to 2020.
 
 ## Dataset
-The initial data of Citi Bike Trip Histories could be found [here](https://s3.amazonaws.com/tripdata/index.html) in CSV format.
+The initial data of Citi Bike Trip Histories could be found [here](https://s3.amazonaws.com/tripdata/index.html) in a compressed format.
 It contains information about bikes sharing in different regions of New York.
 
 The dataset includes the following columns:
@@ -50,6 +50,9 @@ The end-to-end data pipeline includes the next steps:
 * moving the data from the lake to a DWH;
 * transforming the data in the DWH and preparing it for the dashboard;
 * dashboard creating.
+
+You can find the detailed information on the diagram below:
+![image](https://user-images.githubusercontent.com/55026550/163722189-3b5ad002-b7dc-4945-9498-911da9057a5f.png)
 
 ## Tutorial
 This tutorial contains the instructions you need to follow to reproduce the project results.
