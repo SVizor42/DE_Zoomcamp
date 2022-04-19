@@ -143,15 +143,16 @@ to activate the `data_ingestion_to_gcs_dag` dag first and wait for it to finish 
 that manually run the `gcs_to_bq_dag` dag to create tables in DWH.
 
 ### 5. DBT
-We are going to use [dbt Cloud](https://www.getdbt.com/) for data transformation in DWH and further analytics dashboard development.
+We are going to use [dbt](https://www.getdbt.com/) for data transformation in DWH and further analytics dashboard development.
 
 First you will need to create a dbt Cloud account (if you don't already have one) using [this link](https://www.getdbt.com/signup/) 
 and connect to your BigQuery by following [these instructions](https://docs.getdbt.com/docs/dbt-cloud/cloud-configuring-dbt-cloud/cloud-setting-up-bigquery-oauth).
 You can find more detailed instructions [here](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md).
 
 Note that:
-* You can fork or copy an existing dbt project located in the [separate folder](dbt) and use a link to the forked/copied version if necessary. 
-* You need to create separate datasets for staging and production dbt models (e.g. `citibike_dev` and `citibike_prod`).
+* you can fork or copy an existing dbt project located in the [separate folder](dbt) and use a link to the forked/copied version if necessary; 
+* you need to create separate datasets in BigQuery for staging and production dbt models (e.g. `citibike_dev` and `citibike_prod`);
+* you should modify [profiles.yaml](dbt/profiles.yml) file according to your dataset names and credentials.
 
 ### 6. Google Data Studio
 When the production models are ready, you can start building a dashboard.
