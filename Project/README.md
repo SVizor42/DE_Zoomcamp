@@ -84,6 +84,7 @@ gcloud auth application-default login
 6. Enable the following options under the APIs and services section:
    * [Identity and Access Management (IAM) API](https://console.cloud.google.com/apis/library/iam.googleapis.com)
    * [IAM service account credentials API](https://console.cloud.google.com/apis/library/iamcredentials.googleapis.com)
+   * [Compute Engine API](https://console.developers.google.com/apis/api/compute.googleapis.com) (if you are going to use VM instance)
 
 ### 3. Terraform
 We use Terraform to build and manage GCP infrastructure. Terraform configuration files are located in the [separate folder](terraform). 
@@ -152,7 +153,7 @@ You can find more detailed instructions [here](https://github.com/DataTalksClub/
 
 Note that:
 * you can fork or copy an existing dbt project located in the [separate folder](dbt) and use a link to the forked/copied version if necessary; 
-* you need to create separate datasets in BigQuery for staging and production dbt models (e.g. `citibike_dev` and `citibike_prod`);
+* you need to check that BigQuery already has areas (datasets) for staging and production dbt models (`citibike_dev` and `citibike_prod` in our case);
 * you should modify [profiles.yaml](dbt/profiles.yml) file according to your dataset names and credentials.
 
 ### 6. Google Data Studio

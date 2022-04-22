@@ -14,7 +14,6 @@ provider "google" {
 }
 
 # Data Lake Bucket
-# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket
 resource "google_storage_bucket" "data-lake-bucket" {
   name          = "${local.data_lake_bucket}_${var.project}" # Concatenating DL bucket & Project name for unique naming
   location      = var.region
@@ -30,10 +29,45 @@ resource "google_storage_bucket" "data-lake-bucket" {
   force_destroy = true
 }
 
-# DWH
-# Ref: https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset
+# Data Warehouse
 resource "google_bigquery_dataset" "dataset" {
   dataset_id = var.BQ_DATASET
   project    = var.project
   location   = var.region
+}
+
+resource "google_bigquery_dataset" "stage_dataset" {
+  dataset_id = var.dbt_stg_dataset
+  project    = var.project
+  location   = var.region
+  delete_contents_on_destroy = true
+}
+
+resource "google_bigquery_dataset" "prod_dataset" {
+  dataset_id = var.dbt_core_dataset
+  project    = var.project
+  location   = var.region
+  delete_contents_on_destroy = true
+}
+
+# VM instance
+resource "google_compute_instance" "vm_instance" {
+  name          = "airflow-instance"
+  project       = var.project
+  machine_type  = "e2-standard-4"
+  zone          = var.region
+
+  boot_disk {
+    initialize_params {
+      image = var.vm_image
+    }
+  }
+
+  network_interface {
+    network = "default"
+
+    access_config {
+      // Ephemeral public IP
+    }
+  }
 }
